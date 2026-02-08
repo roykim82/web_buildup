@@ -2,24 +2,15 @@
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 
 // Dummy data for the last 5 years of winning numbers
-const winningNumbers = [
-    [5, 12, 23, 33, 40, 45],
-    [1, 8, 19, 21, 30, 36],
-    [7, 11, 15, 25, 38, 42],
-    [3, 10, 18, 22, 28, 35],
-    [9, 14, 26, 31, 39, 44],
-    // ... add more data here
-];
-
 document.getElementById('generate').addEventListener('click', () => {
-    const allNumbers = winningNumbers.flat();
-    const frequency = {};
-    allNumbers.forEach(num => {
-        frequency[num] = (frequency[num] || 0) + 1;
-    });
-
-    const sortedNumbers = Object.keys(frequency).sort((a, b) => frequency[b] - frequency[a]);
-    const luckyNumbers = sortedNumbers.slice(0, 6);
+    const luckyNumbers = [];
+    while (luckyNumbers.length < 6) {
+        const randomNumber = Math.floor(Math.random() * 49) + 1;
+        if (!luckyNumbers.includes(randomNumber)) {
+            luckyNumbers.push(randomNumber);
+        }
+    }
+    luckyNumbers.sort((a, b) => a - b); // Sort numbers for better display
 
     displayNumbers(luckyNumbers);
 });
@@ -78,28 +69,4 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-const themeToggle = document.getElementById('theme-toggle');
-const htmlEl = document.documentElement;
 
-themeToggle.addEventListener('change', () => {
-    if (themeToggle.checked) {
-        htmlEl.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        htmlEl.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-    }
-});
-
-(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme) {
-        htmlEl.setAttribute('data-theme', savedTheme);
-        themeToggle.checked = savedTheme === 'dark';
-    } else if (prefersDark) {
-        htmlEl.setAttribute('data-theme', 'dark');
-        themeToggle.checked = true;
-    }
-})();

@@ -13,6 +13,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
@@ -21,24 +22,31 @@
             <div class="card">
                 <h2>About Us</h2>
                 <p>
-                    Welcome to the Lotto Number Generator! Our mission is to provide you with a unique and fun way to pick your lottery numbers.
+                    Welcome to the Lotto Number Generator! Our mission is to provide lottery enthusiasts with a simple, fair, and engaging platform to generate their lucky numbers. We understand the excitement and dreams associated with playing the lottery, and our goal is to enhance that experience with a reliable, random number generation tool.
                 </p>
                 <p>
-                    We believe that choosing lottery numbers should be an exciting experience. Instead of relying on random quick picks, our tool generates numbers based on an analysis of winning numbers from the past five years. This approach adds a layer of strategy and fun to the number selection process.
+                    We believe that every lottery draw is an independent event, and true randomness is key. Our generator uses a robust algorithm to produce unique sets of numbers, ensuring that each combination is equally likely. We are committed to transparency and providing a straightforward service without complex analyses or misleading predictions.
+                </p>
+                <h3>Our Vision</h3>
+                <p>
+                    To be the most trusted and user-friendly lottery number generator, fostering responsible play and adding a touch of digital luck to our users' lottery participation.
                 </p>
                 <h3>How It Works</h3>
                 <p>
-                    Our algorithm analyzes the frequency of each number drawn in major lotteries over the last five years. It identifies "hot" and "cold" numbers and generates a combination that is statistically interesting. While we cannot guarantee a win (as the lottery is a game of chance), we offer a more engaging way to participate.
+                    Our random number generator operates on a principle of pure chance, simulating the independent nature of official lottery draws. When you click "Generate," our system selects 6 distinct numbers between 1 and 49 (or your chosen range) with no bias, ensuring a truly random outcome every single time. We provide these numbers to you instantly, ready for your next lottery ticket. While we cannot guarantee a win (as the lottery is inherently a game of chance), we guarantee a genuinely random and unbiased selection process.
                 </p>
                 <p>
-                    Thank you for using our service. We wish you the best of luck!
+                    Thank you for choosing Lotto Number Generator. We wish you the best of luck in all your endeavors!
                 </p>
             </div>
         </main>
     </div>
     <footer>
-        <p>&copy; 2026 Lotto Number Generator. All Rights Reserved.</p>
+        <p>&copy; <span id="current-year"></span> Lotto Number Generator. All Rights Reserved.</p>
     </footer>
-    <script type="module" src="main.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <script src="theme-switcher.js"></script>
 </body>
 </html>
